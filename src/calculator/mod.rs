@@ -24,7 +24,9 @@ pub fn calculate_rpn(input: String) -> String {
       Err(_) => return format!("Error: { } non supported characters", c).to_string(),
     }
   }
-
+  if stack.len() != 1 {
+    return "Error: operator operand mismatch".to_string();
+  }
   stack.pop().unwrap().to_string()
 }
 
